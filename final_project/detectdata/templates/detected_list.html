@@ -1,0 +1,17 @@
+{% extends 'mainpage/templates/header.html' %}
+
+{% load staticfiles %}
+
+{% block main %}
+
+<div class="col-md-4">
+    <div class="container">
+        {% for list in detected_list %}
+            {{ list.ctime }}<br>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+{% endblock main %}

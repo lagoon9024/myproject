@@ -1,0 +1,17 @@
+{% extends 'mainpage/templates/header.html' %}
+
+{% load staticfiles %}
+
+{% block main %}
+    <div class="container" id = "cont"></div>
+    <script type="text/javascript">
+        $.get('/data.json', function(jsondata) {
+            Highcharts.chart('cont', {
+               chart: {
+                    type: 'spline'
+                },
+                data: jsondata,
+            });
+        });
+    </script>
+{% endblock main %}
