@@ -7,16 +7,14 @@
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Jekyll v3.8.6">
-  <title>Sticky Footer Navbar Template · Bootstrap</title>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-  <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
-  <script type="text/javascript" src="https://code.highcharts.com/modules/exporting.js"></script>
-  <script type="text/javascript" src="https://code.highcharts.com/modules/data.js"></script>
+  <title>Class10_final</title>
   <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/sticky-footer-navbar/">
 
   <!-- Bootstrap core CSS -->
   <link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
+
+  
   <style>
     .container {
       min-width: 310px;
@@ -24,8 +22,9 @@
       height: 400px;
       margin: auto;
       box-sizing: border-box;
-      padding : 60px 15px 0;
+      padding: 60px 15px 0;
     }
+
     .form-signin {
       width: 100%;
       max-width: 330px;
@@ -46,12 +45,18 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="http://localhost:8000/board">personal <span class="sr-only">(current)</span></a>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/board">personal</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/login">logout</a>
+          </li>
+          {% else %}
           <li class="nav-item">
             <a class="nav-link" href="http://localhost:8000/login">login</a>
           </li>
+          {% endif %}
         </ul>
         <form class="form-inline mt-2 mt-md-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
